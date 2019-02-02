@@ -45,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                result = add(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
+                Add add = new Add(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
+                result = add.calcAdd(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
                 tvResult.setText(result);
                 log.add("Result of Addition: " + result);
 
@@ -67,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
         btnSubtract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                result = sub(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
+                Subtract subtract = new Subtract(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
+                result = subtract.calcSubtract(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
                 tvResult.setText(result);
                 log.add("Result of Subtraction: " + result);
 
@@ -78,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
         btnMulti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                result = multiply(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
+                Multiply multiply = new Multiply(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
+                result = multiply.calcMultiply(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
                 tvResult.setText(result);
                 log.add("Result of Multiplication: " + result);
             }
@@ -87,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
         btnDivide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                result = divide(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
+                Divide divide = new Divide(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
+                result = divide.calcDivide(etNumberOne.getText().toString(), etNumberTwo.getText().toString());
                 tvResult.setText(result);
                 log.add("Result of Division: " + result);
             }
@@ -96,59 +100,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private String add(String numberOne, String numberTwo) {
-        if (numberOne.equals("") || numberTwo.isEmpty()) {
-            Toast.makeText(this, "please enter a valid number",  //really useful if you want to show a error message or to inform user to complete a user
-                    Toast.LENGTH_SHORT).show();
-            return null;
-        }
-        int a = Integer.parseInt(numberOne);
-        int b = Integer.parseInt(numberTwo);
-        int result = a + b;
-        return Integer.toString(result);
+
 
     }
 
 
-    private String sub(String numberOne, String numberTwo) {
-        if (numberOne.equals("") || numberTwo.isEmpty()) {
-            Toast.makeText(this, "please enter a valid number",  //really useful if you want to show a error message or to inform user to complete a user
-                    Toast.LENGTH_SHORT).show();
-            return null;
-        }
-        int a = Integer.parseInt(numberOne);
-        int b = Integer.parseInt(numberTwo);
-        int result = a - b;
-        return Integer.toString(result);
 
-    }
 
-    private String multiply(String numberOne, String numberTwo) {
-        if (numberOne.equals("") || numberTwo.isEmpty()) {
-            Toast.makeText(this, "please enter a valid number",  //really useful if you want to show a error message or to inform user to complete a user
-                    Toast.LENGTH_SHORT).show();
-            return null;
-        }
-        int a = Integer.parseInt(numberOne);
-        int b = Integer.parseInt(numberTwo);
-        int result = a * b;
-        return Integer.toString(result);
 
-    }
 
-    private String divide(String numberOne, String numberTwo) {
-        if (numberOne.equals("") || numberTwo.isEmpty()) {
-            Toast.makeText(this, "please enter a valid number",  //really useful if you want to show a error message or to inform user to complete a user
-                    Toast.LENGTH_SHORT).show();
-            return null;
-        }
-        int a = Integer.parseInt(numberOne);
-        int b = Integer.parseInt(numberTwo);
-        int result = a / b;
-        return Integer.toString(result);
 
-    }
-}
+
+
+
 
 
 
